@@ -12,7 +12,7 @@ import android.support.annotation.StringRes;
 
 /**
  * 创建删除快捷图标
- * <p/>
+ *
  * 需要权限: com.android.launcher.permission.INSTALL_SHORTCUT
  * com.android.launcher.permission.UNINSTALL_SHORTCUT
  */

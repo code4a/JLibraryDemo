@@ -26,7 +26,7 @@ ext{
     bintrayRepo = 'jlibrary'
     bintrayName = 'jlibrary'
 
-    publishedGroupId = 'com.code4a.jlibrary'
+    publishedGroupId = 'com.code4a'
     libraryName = 'jlibrary'
     artifact = 'jlibrary'
 
@@ -35,11 +35,11 @@ ext{
     siteUrl = 'https://github.com/code4a/JLibraryDemo'
     gitUrl = 'https://github.com/code4a/JLibraryDemo.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'code4a'
     developerName = 'Jiang Yantao'
-    developerEmail = 'jiangyantaodev@163.com'
+    developerEmail = 'hello_frameworks@126.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
