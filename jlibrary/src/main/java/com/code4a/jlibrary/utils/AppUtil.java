@@ -16,7 +16,7 @@ public class AppUtil {
     /**
      * 获取应用程序名称
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static String getAppName(Context context) {
@@ -35,7 +35,7 @@ public class AppUtil {
     /**
      * 获取应用程序版本名称信息
      *
-     * @param context
+     * @param context 上下文
      * @return 当前应用的版本名称
      */
     public static String getVersionName(Context context) {
@@ -53,7 +53,7 @@ public class AppUtil {
     /**
      * 获取应用程序的版本Code信息
      *
-     * @param context
+     * @param context 上下文
      * @return 版本code
      */
     public static int getVersionCode(Context context) {

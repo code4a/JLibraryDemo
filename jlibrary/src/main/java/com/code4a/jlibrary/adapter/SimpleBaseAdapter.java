@@ -30,7 +30,7 @@ public abstract class SimpleBaseAdapter<T> extends BaseAdapter {
     /**
      * 刷新适配器数据
      *
-     * @param datas
+     * @param datas 数据集
      */
     public void refereshDatas(List<T> datas) {
         this.datas = datas;

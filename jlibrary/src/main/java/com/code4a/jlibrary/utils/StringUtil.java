@@ -20,7 +20,7 @@ public class StringUtil {
 
     /**
      * is null or its length is 0 or it is made by space
-     * <p/>
+     *
      * <pre>
      * isBlank(null) = true;
      * isBlank(&quot;&quot;) = true;
@@ -43,7 +43,7 @@ public class StringUtil {
 
     /**
      * is null or its length is 0
-     * <p/>
+     *
      * <pre>
      * isEmpty(null) = true;
      * isEmpty(&quot;&quot;) = true;
@@ -62,7 +62,7 @@ public class StringUtil {
 
     /**
      * get length of CharSequence
-     * <p/>
+     *
      * <pre>
      * length(null) = 0;
      * length(\"\") = 0;
@@ -81,7 +81,7 @@ public class StringUtil {
 
     /**
      * null Object to empty string
-     * <p/>
+     *
      * <pre>
      * nullStrToEmpty(null) = &quot;&quot;;
      * nullStrToEmpty(&quot;&quot;) = &quot;&quot;;

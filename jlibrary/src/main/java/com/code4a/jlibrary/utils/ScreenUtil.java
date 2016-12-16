@@ -21,7 +21,7 @@ public class ScreenUtil {
     /**
      * 获得屏幕宽度
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static int getScreenWidth(Context context) {
@@ -35,7 +35,7 @@ public class ScreenUtil {
     /**
      * 获得屏幕高度
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static int getScreenHeight(Context context) {
@@ -49,7 +49,7 @@ public class ScreenUtil {
     /**
      * 获得状态栏的高度
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static int getStatusHeight(Context context) {
@@ -70,7 +70,7 @@ public class ScreenUtil {
     /**
      * 获取当前屏幕截图，包含状态栏
      *
-     * @param activity
+     * @param activity activity
      * @return
      */
     public static Bitmap snapShotWithStatusBar(Activity activity) {
@@ -89,7 +89,7 @@ public class ScreenUtil {
     /**
      * 获取当前屏幕截图，不包含状态栏
      *
-     * @param activity
+     * @param activity activity
      * @return
      */
     public static Bitmap snapShotWithoutStatusBar(Activity activity) {

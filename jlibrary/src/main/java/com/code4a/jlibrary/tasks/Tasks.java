@@ -9,7 +9,7 @@ import java.util.concurrent.Executor;
 
 
 /**
- * @author hi-github
+ * @author code4a
  */
 public final class Tasks {
 

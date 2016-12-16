@@ -5,7 +5,7 @@ import android.content.Context;
 import java.lang.ref.WeakReference;
 
 /**
- * @author hi-github
+ * @author code4a
  */
 /*package*/ class Task<T> extends AbstractTask<T> {
 

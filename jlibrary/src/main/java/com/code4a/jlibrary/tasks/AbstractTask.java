@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 /**
- * @author hi-github
+ * @author code4a
  */
 /*package*/ abstract class AbstractTask<T> extends AsyncTask<Void, Void, T> {
 

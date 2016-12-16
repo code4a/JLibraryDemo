@@ -43,9 +43,9 @@ public class NotificationUtil {
     /**
      * 设置在顶部通知栏中的各种信息
      *
-     * @param intent
-     * @param smallIcon
-     * @param ticker
+     * @param intent 意图
+     * @param smallIcon icon
+     * @param ticker 提示信息
      */
     private void setCompatBuilder(Intent intent, int smallIcon, String ticker,
                                   String title, String msg) {
@@ -93,11 +93,11 @@ public class NotificationUtil {
     /**
      * 普通的通知
      *
-     * @param intent
-     * @param smallIcon
-     * @param ticker
-     * @param title
-     * @param msg
+     * @param intent 意图
+     * @param smallIcon 图标
+     * @param ticker 提示信息
+     * @param title 提示标题
+     * @param msg 提示详情
      */
     public void normal_notification(Intent intent, int smallIcon,
                                     String ticker, String title, String msg) {
@@ -109,12 +109,12 @@ public class NotificationUtil {
     /**
      * 进行多项设置的通知(在小米上似乎不能设置大图标，系统默认大图标为应用图标)
      *
-     * @param intent
-     * @param smallIcon
-     * @param ticker
-     * @param LargeIcon
-     * @param title
-     * @param msg
+     * @param intent 意图
+     * @param smallIcon 图标
+     * @param ticker 提示信息
+     * @param LargeIcon 大图标
+     * @param title 标题
+     * @param msg 信息
      */
     public void special_notification(Intent intent, int smallIcon,
                                      String ticker, int LargeIcon, String title, String msg) {
@@ -153,10 +153,10 @@ public class NotificationUtil {
     /**
      * 自定义视图的通知
      *
-     * @param remoteViews
-     * @param intent
-     * @param smallIcon
-     * @param ticker
+     * @param remoteViews 自定义view
+     * @param intent 意图
+     * @param smallIcon 小图标
+     * @param ticker 提示信息
      */
     public void view_notification(RemoteViews remoteViews, Intent intent,
                                   int smallIcon, String ticker) {

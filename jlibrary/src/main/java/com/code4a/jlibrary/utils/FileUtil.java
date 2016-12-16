@@ -158,7 +158,7 @@ public class FileUtil {
     /**
      * 获取缓存文件夹
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static String getDiskCacheDir(Context context) {

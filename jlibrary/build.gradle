@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         minSdkVersion 15
@@ -22,23 +22,49 @@ android {
 }
 
 ext{
-    SUPPORT_VERSION = '25.0.1'
-    JUNIT_VERSION = '4.12'
-    BUTTERKNIFE_VERSION = '8.4.0'
-    GSON_VERSION = '2.6.2'
+
+    bintrayRepo = 'jlibrary'
+    bintrayName = 'jlibrary'
+
+    publishedGroupId = 'com.code4a.jlibrary'
+    libraryName = 'jlibrary'
+    artifact = 'jlibrary'
+
+    libraryDescription = 'this is an android library'
+
+    siteUrl = 'https://github.com/code4a/JLibraryDemo'
+    gitUrl = 'https://github.com/code4a/JLibraryDemo.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'code4a'
+    developerName = 'Jiang Yantao'
+    developerEmail = 'jiangyantaodev@163.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
 }
 
 apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
-    testCompile "junit:junit:${JUNIT_VERSION}"
-
-    compile "com.google.code.gson:gson:${GSON_VERSION}"
-
-    compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
-    apt "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}"
+    compile 'com.android.support:support-annotations:25.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.google.code.gson:gson:2.8.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt "com.jakewharton:butterknife-compiler:8.4.0"
 }
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

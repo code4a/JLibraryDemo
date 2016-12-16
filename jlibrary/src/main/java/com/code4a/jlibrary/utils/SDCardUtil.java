@@ -56,7 +56,7 @@ public class SDCardUtil {
     /**
      * 获取指定路径所在空间的剩余可用容量字节数，单位byte
      *
-     * @param filePath
+     * @param filePath 文件路径
      * @return 容量字节 SDCard可用空间，内部存储可用空间
      */
     public static long getFreeBytes(String filePath) {

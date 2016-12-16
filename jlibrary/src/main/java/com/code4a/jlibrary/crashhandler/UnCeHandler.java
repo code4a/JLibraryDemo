@@ -69,7 +69,7 @@ public class UnCeHandler implements UncaughtExceptionHandler {
     /**
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.
      *
-     * @param ex
+     * @param ex 异常
      * @return true:如果处理了该异常信息;否则返回false.
      */
     private boolean handleException(Throwable ex) {
@@ -154,14 +154,12 @@ public class UnCeHandler implements UncaughtExceptionHandler {
     }
 
     /**
-     * @param log
-     * @param name
+     * @param log log内容
+     * @param name log名称
      * @return 返回写入的文件路径 写入Log信息的方法，写入到SD卡里面
      */
     public String writeLog(String log, String name) {
         Log.i("TAG", "writeLog 写入到SD卡里面 start");
-//        CharSequence timestamp = new Date().toString().replace(" ", "");
-        ;
         String timestamp = "crash_" + DateUtil.getCurDateStr(DateUtil.FORMAT_YMDHMS);
         String filename = name + timestamp + ".log";
         Log.i("TAG", "writeLog 写入到SD卡里面 start fileName = " + filename);

@@ -18,8 +18,8 @@ public class DensityUtil {
     /**
      * dp转px
      *
-     * @param context
-     * @param dpVal
+     * @param context 上下文
+     * @param dpVal value
      * @return
      */
     public static int dp2px(Context context, float dpVal) {
@@ -30,8 +30,8 @@ public class DensityUtil {
     /**
      * sp转px
      *
-     * @param context
-     * @param spVal
+     * @param context 上下文
+     * @param spVal value
      * @return
      */
     public static int sp2px(Context context, float spVal) {
@@ -42,8 +42,8 @@ public class DensityUtil {
     /**
      * px转dp
      *
-     * @param context
-     * @param pxVal
+     * @param context 上下文
+     * @param pxVal value
      * @return
      */
     public static float px2dp(Context context, float pxVal) {
@@ -54,8 +54,8 @@ public class DensityUtil {
     /**
      * px转sp
      *
-     * @param context
-     * @param pxVal
+     * @param context 上下文
+     * @param pxVal value
      * @return
      */
     public static float px2sp(Context context, float pxVal) {

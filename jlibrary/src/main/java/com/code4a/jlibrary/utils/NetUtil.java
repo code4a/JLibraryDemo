@@ -20,7 +20,7 @@ public class NetUtil {
     /**
      * 判断网络是否连接
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static boolean isConnected(Context context) {
@@ -41,7 +41,7 @@ public class NetUtil {
     /**
      * 判断是否是WIFI连接
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static boolean isWIFI(Context context) {

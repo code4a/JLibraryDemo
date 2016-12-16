@@ -36,8 +36,8 @@ public class ToastUtil {
     /**
      * 短时间显示Toast
      *
-     * @param context
-     * @param message
+     * @param context 上下文
+     * @param message 信息
      */
     public static void showShort(Context context, int message) {
         if (isShow)
@@ -47,8 +47,8 @@ public class ToastUtil {
     /**
      * 长时间显示Toast
      *
-     * @param context
-     * @param message
+     * @param context 上下文
+     * @param message 信息
      */
     public static void showLong(Context context, CharSequence message) {
         if (isShow)
@@ -58,8 +58,8 @@ public class ToastUtil {
     /**
      * 长时间显示Toast
      *
-     * @param context
-     * @param message
+     * @param context 上下文
+     * @param message 信息
      */
     public static void showLong(Context context, int message) {
         if (isShow)
@@ -69,9 +69,9 @@ public class ToastUtil {
     /**
      * 自定义显示Toast时间
      *
-     * @param context
-     * @param message
-     * @param duration
+     * @param context 上下文
+     * @param message 信息
+     * @param duration 时长
      */
     public static void show(Context context, CharSequence message, int duration) {
         if (isShow)
@@ -81,9 +81,9 @@ public class ToastUtil {
     /**
      * 自定义显示Toast时间
      *
-     * @param context
-     * @param message
-     * @param duration
+     * @param context 上下文
+     * @param message 信息
+     * @param duration 时长
      */
     public static void show(Context context, int message, int duration) {
         if (isShow)

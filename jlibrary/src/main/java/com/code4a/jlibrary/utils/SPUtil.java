@@ -49,9 +49,9 @@ public class SPUtil {
     /**
      * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      *
-     * @param context
-     * @param key
-     * @param defaultObject
+     * @param context 上下文
+     * @param key key
+     * @param defaultObject do
      * @return
      */
     public static Object get(Context context, String key, Object defaultObject) {
@@ -75,8 +75,8 @@ public class SPUtil {
     /**
      * 移除某个key值已经对应的值
      *
-     * @param context
-     * @param key
+     * @param context 上下文
+     * @param key key
      */
     public static void remove(Context context, String key) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -89,7 +89,7 @@ public class SPUtil {
     /**
      * 清除所有数据
      *
-     * @param context
+     * @param context 上下文
      */
     public static void clear(Context context) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -102,8 +102,8 @@ public class SPUtil {
     /**
      * 查询某个key是否已经存在
      *
-     * @param context
-     * @param key
+     * @param context 上下文
+     * @param key key
      * @return
      */
     public static boolean contains(Context context, String key) {
@@ -115,7 +115,7 @@ public class SPUtil {
     /**
      * 返回所有的键值对
      *
-     * @param context
+     * @param context 上下文
      * @return
      */
     public static Map<String, ?> getAll(Context context) {
