@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JLibrary</string>
+    <string name="exception_exit_help_msg">程序异常退出！</string>
+</resources>

@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext{
+    SUPPORT_VERSION = '25.0.1'
+    JUNIT_VERSION = '4.12'
+    BUTTERKNIFE_VERSION = '8.4.0'
+    GSON_VERSION = '2.6.2'
+}
+
+apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
+    testCompile "junit:junit:${JUNIT_VERSION}"
+
+    compile "com.google.code.gson:gson:${GSON_VERSION}"
+
+    compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
+    apt "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}"
+}
