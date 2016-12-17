@@ -23,11 +23,11 @@ android {
 
 ext{
 
-    bintrayRepo = 'jlibrary'
+    bintrayRepo = 'maven'
     bintrayName = 'jlibrary'
 
     publishedGroupId = 'com.code4a'
-    libraryName = 'jlibrary'
+    libraryName = 'JLibrary'
     artifact = 'jlibrary'
 
     libraryDescription = 'this is an android library'
@@ -35,10 +35,10 @@ ext{
     siteUrl = 'https://github.com/code4a/JLibraryDemo'
     gitUrl = 'https://github.com/code4a/JLibraryDemo.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'code4a'
-    developerName = 'Jiang Yantao'
+    developerName = 'code4a'
     developerEmail = 'hello_frameworks@126.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
@@ -46,6 +46,7 @@ ext{
     allLicenses = ["Apache-2.0"]
 
 }
+
 
 apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
@@ -66,5 +67,6 @@ tasks.withType(Javadoc) {
     options.encoding = "UTF-8"
 }
 
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+//https://raw.githubusercontent.com/code4a/JCenter/master/bintrayv1.gradle
+apply from: 'https://raw.githubusercontent.com/code4a/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/code4a/JCenter/master/bintrayv1.gradle'
