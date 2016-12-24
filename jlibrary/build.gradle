@@ -54,6 +54,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+//    compile 'com.tencent.bugly:crashreport:2.4.0'
+    compile 'com.tencent.bugly:crashreport_upgrade:1.2.1'
     compile 'com.android.support:support-annotations:25.0.1'
     compile "com.android.support:design:25.0.1"
     compile 'com.android.support:appcompat-v7:25.0.1'

@@ -3,6 +3,7 @@
     package="com.code4a.jlibrarydemo">
 
     <application
+        android:name=".JLibraryApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
