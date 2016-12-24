@@ -28,8 +28,8 @@ dependencies {
 This project use this libraries ~ Thanks to them.
 
   [Butterknife](https://github.com/JakeWharton/butterknife)  <br>
-  [Gson](https://github.com/google/gson)
-  [Bugly](https://github.com/BuglyDevTeam/Bugly-Android-Demo)
+  [Gson](https://github.com/google/gson)  <br>
+  [Bugly](https://github.com/BuglyDevTeam/Bugly-Android-Demo)  <br>
 
 
 License
