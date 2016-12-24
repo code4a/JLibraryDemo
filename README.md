@@ -1,13 +1,15 @@
 # JLibrary
 
-抽取的Activity和Fragment基类以及一些工具类
+抽取的Activity和Fragment基类以及一些工具类!
+
+* 新增bugly的bug上报和应用更新！通过JbuglyManger修改appid和appkey 并初始化bugly
 
 # 如何使用
 
 #### Gradle
 ```
 dependencies {
-  compile 'com.code4a:jlibrary:1.0.2'
+  compile 'com.code4a:jlibrary:1.0.3'
 }
 ```
 
@@ -16,7 +18,7 @@ dependencies {
 <dependency>
   <groupId>com.code4a</groupId>
   <artifactId>jlibrary</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -27,6 +29,7 @@ This project use this libraries ~ Thanks to them.
 
   [Butterknife](https://github.com/JakeWharton/butterknife)  <br>
   [Gson](https://github.com/google/gson)
+  [Bugly](https://github.com/BuglyDevTeam/Bugly-Android-Demo)
 
 
 License
