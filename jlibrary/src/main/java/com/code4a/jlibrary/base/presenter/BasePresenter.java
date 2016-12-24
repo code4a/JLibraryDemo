@@ -18,4 +18,8 @@ public abstract class BasePresenter<T extends BasePresenterView> {
     public T getView() {
         return view;
     }
+
+    public void release(){
+        view = null;
+    }
 }

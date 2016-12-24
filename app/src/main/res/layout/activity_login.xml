@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/login_bg"
+    >
+
+    <LinearLayout
+        android:id="@+id/sign_in_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/spacing_double"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:minHeight="?android:attr/actionBarSize"
+            android:paddingLeft="@dimen/spacing_double"
+            android:paddingRight="@dimen/spacing_double"
+            android:transitionGroup="true"
+            tools:ignore="UnusedAttribute,NewApi">
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="@string/user_name"
+                android:drawableLeft="@mipmap/ic_action_person"
+                android:drawablePadding="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:textSize="@dimen/size_edit_text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:minHeight="?android:attr/actionBarSize"
+            android:paddingLeft="@dimen/spacing_double"
+            android:paddingRight="@dimen/spacing_double"
+            android:transitionGroup="true"
+            tools:ignore="UnusedAttribute,NewApi">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="@string/password"
+                android:drawableLeft="@mipmap/ic_action_accounts"
+                android:drawablePadding="8dp"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions|textCapWords"
+                android:maxLength="1"
+                android:textSize="@dimen/size_edit_text" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sign_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sign_in_layout"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/size_edit_text"
+        android:transitionName="@string/share_element_tv" />
+
+    <ImageView
+        android:id="@+id/sign_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/sign_msg"
+        android:src="@mipmap/ic_launcher"
+        android:transitionName="@string/share_element" />
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/login_btn"
+        android:layout_width="196dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="26dp"
+        android:layout_below="@id/sign_in_layout"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/cpb_white"
+        android:textSize="@dimen/size_edit_text"
+        app:cpb_cornerRadius="40dp"
+        app:cpb_paddingProgress="2dp"
+        app:cpb_textComplete="@string/login_success"
+        app:cpb_textError="@string/login_failed"
+        app:cpb_textIdle="@string/log_in" />
+
+</RelativeLayout>

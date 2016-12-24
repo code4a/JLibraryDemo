@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">JLibraryDemo</string>
+
+    <string name="user_name">username</string>
+    <string name="password">password</string>
+    <string name="log_in">Log in</string>
+    <string name="username_error">Username cannot be empty</string>
+    <string name="password_error">Password cannot be empty</string>
+    <string name="login_success">Success</string>
+    <string name="login_failed">Failed</string>
+
+    <string name="share_element">Share Element Transition</string>
+    <string name="share_element_tv">Share Element Transition Msg</string>
+
 </resources>
