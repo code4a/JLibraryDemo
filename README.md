@@ -46,7 +46,7 @@
 #### Gradle
 ```
 dependencies {
-  compile 'com.code4a:jlibrary:1.0.3'
+  compile 'com.code4a:jlibrary:1.0.4'
 }
 ```
 
@@ -55,7 +55,7 @@ dependencies {
 <dependency>
   <groupId>com.code4a</groupId>
   <artifactId>jlibrary</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <type>pom</type>
 </dependency>
 ```
