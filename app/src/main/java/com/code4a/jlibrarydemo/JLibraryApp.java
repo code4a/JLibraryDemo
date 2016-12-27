@@ -13,6 +13,7 @@ public class JLibraryApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+//        AndroidCrash.initCrashHandler(this, R.string.app_crash, LoginActivity.class);
         JBuglyManager.initCrashReportAndUpdate(this, true);
     }
 }

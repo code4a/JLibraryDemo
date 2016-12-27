@@ -2,9 +2,46 @@
 
 抽取的Activity和Fragment基类以及一些工具类!
 
+* 支持程序crash后log收集，程序异常退出后，重启app
 * 新增bugly的bug上报和应用更新！通过JbuglyManger修改appid和appkey 并初始化bugly
+* 添加支持设置系统状态栏颜色，兼容Android 4.4.2(API 19)以上
 
-# 如何使用
+##### 使用CrashHandler收集crash日志，并重启应用
+
+需要在Application的onCreate方法中，调用如下代码。
+```java
+    AndroidCrash.initCrashHandler(Application appInstance, @StringRes int resId, Class<?> restartClass);
+```
+
+**正常情况下日志信息存放在SD卡路径下的appname_crash_log目录下，但Android7.0因权限问题，文件目前只能存放在应用的logs文件夹内**
+
+##### 初始化与使用bugly
+
+需要在Application的onCreate方法中，先调用如下代码，初始化自己工程的appid和appkey。
+```java
+    JBuglyManager.setAppIdAndKey(appId, appKey);
+```
+接着调用如下代码。
+```java
+    JBuglyManager.initCrashReportAndUpdate(this, true);
+```
+
+##### 修改状态栏颜色
+
+如何你的Activity继承自该库的base，则在其onCreate方法中调用以下代码。
+```java
+    setStatusBarColor(int color);
+```
+如果是自己的Activity，则需要在onCreate中调用以下代码。
+```java
+    StatusBarCompat.setStatusBarColor(this, color, lightStatusBar);
+```
+或者是
+```java
+    StatusBarCompat.setStatusBarColor(this, color);
+```
+
+# 如何依赖
 
 #### Gradle
 ```
@@ -30,6 +67,7 @@ This project use this libraries ~ Thanks to them.
   [Butterknife](https://github.com/JakeWharton/butterknife)  <br>
   [Gson](https://github.com/google/gson)  <br>
   [Bugly](https://github.com/BuglyDevTeam/Bugly-Android-Demo)  <br>
+  [status-bar-compat](https://github.com/msdx/status-bar-compat)  <br>
 
 
 License

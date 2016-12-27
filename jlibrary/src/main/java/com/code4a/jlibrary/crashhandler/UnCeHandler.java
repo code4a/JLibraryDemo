@@ -12,11 +12,11 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Looper;
 import android.support.annotation.StringRes;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.code4a.jlibrary.utils.AppUtil;
 import com.code4a.jlibrary.utils.DateUtil;
+import com.code4a.jlibrary.utils.LogUtil;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -39,26 +39,24 @@ public class UnCeHandler implements UncaughtExceptionHandler {
     private UncaughtExceptionHandler mDefaultHandler;
     private Application appInstance;
 
-//    private SimpleDateFormat formatter;
     private int resId;
     private Class<?> restartClass;
 
-    public UnCeHandler(Application appInstance, @StringRes int resId, Class<?> restartClass) {
+    protected UnCeHandler(Application appInstance, @StringRes int resId, Class<?> restartClass) {
         mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
         this.appInstance = appInstance;
         this.resId = resId;
         this.restartClass = restartClass;
-//        formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     }
 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        Log.i(TAG, "uncaughtException ---------------- ");
+        LogUtil.i(TAG, "uncaughtException ---------------- ");
         if (!handleException(ex) && mDefaultHandler != null) {
             // 如果用户没有处理则让系统默认的异常处理器来处理
             mDefaultHandler.uncaughtException(thread, ex);
         } else {
-            Log.i(TAG, "uncaughtException ---------------- write crash log to file ");
+            LogUtil.i(TAG, "uncaughtException ---------------- write crash log to file ");
             collectDeviceInfo(appInstance); //手机手机信息
             writeCrashInfoToFile(ex); //写入崩溃文件
             restart(appInstance); // 应用重启
@@ -88,14 +86,14 @@ public class UnCeHandler implements UncaughtExceptionHandler {
         return true;
     }
 
-    public String resId2String(int resId) {
+    private String resId2String(int resId) {
         return appInstance.getResources().getString(resId);
     }
 
     /**
      * @param ctx 手机设备相关信息
      */
-    public void collectDeviceInfo(Context ctx) {
+    private void collectDeviceInfo(Context ctx) {
         try {
             PackageManager pm = ctx.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), PackageManager.GET_ACTIVITIES);
@@ -107,16 +105,16 @@ public class UnCeHandler implements UncaughtExceptionHandler {
                 infos.put("crashTime", DateUtil.getCurDateStr(DateUtil.FORMAT_YMDHMS));
             }
         } catch (NameNotFoundException e) {
-            Log.e(TAG, "an error occured when collect package info", e);
+            LogUtil.e(TAG, "an error occured when collect package info" + e);
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                Log.d(TAG, field.getName() + " : " + field.get(null));
+                LogUtil.d(TAG, field.getName() + " : " + field.get(null));
             } catch (Exception e) {
-                Log.e(TAG, "an error occured when collect crash info", e);
+                LogUtil.e(TAG, "an error occured when collect crash info" + e);
             }
         }
     }
@@ -124,8 +122,8 @@ public class UnCeHandler implements UncaughtExceptionHandler {
     /**
      * @param ex 将崩溃写入文件系统
      */
-    public void writeCrashInfoToFile(Throwable ex) {
-        Log.i(TAG, "----- writeCrashInfoToFile --------");
+    private void writeCrashInfoToFile(Throwable ex) {
+        LogUtil.i(TAG, "----- writeCrashInfoToFile --------");
         StringBuffer sb = new StringBuffer();
         for (Map.Entry<String, String> entry : infos.entrySet()) {
             String key = entry.getKey();
@@ -146,36 +144,40 @@ public class UnCeHandler implements UncaughtExceptionHandler {
         // 这里把刚才异常堆栈信息写入SD卡的Log日志里面
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             String sdcardPath = Environment.getExternalStorageDirectory().getPath();
-            String filePath = sdcardPath + "/" + AppUtil.getAppName(appInstance) +  "_crash_log/";
-            Log.i(TAG, "----- writeLog start --------" + filePath);
+            String filePath = sdcardPath + "/" + AppUtil.getAppName(appInstance).toLowerCase() +  "_crash_log/";
+            LogUtil.i(TAG, "----- writeLog start --------" + filePath);
             String localFileUrl = writeLog(sb.toString(), filePath);
-            Log.i(TAG, "----- writeLog end --------" + localFileUrl);
+            LogUtil.i(TAG, "----- writeLog end --------" + localFileUrl);
         }
     }
 
     /**
      * @param log log内容
-     * @param name log名称
+     * @param filePath log名称
      * @return 返回写入的文件路径 写入Log信息的方法，写入到SD卡里面
      */
-    public String writeLog(String log, String name) {
-        Log.i("TAG", "writeLog 写入到SD卡里面 start");
-        String timestamp = "crash_" + DateUtil.getCurDateStr(DateUtil.FORMAT_YMDHMS);
-        String filename = name + timestamp + ".log";
-        Log.i("TAG", "writeLog 写入到SD卡里面 start fileName = " + filename);
+    private String writeLog(String log, String filePath) {
+        LogUtil.i("TAG", "writeLog 创建日志文件 start");
+        String timestamp = "crash_" + DateUtil.getCurDateStr(DateUtil.FORMAT_YMDHMS) + ".log";
+        String filename = filePath + timestamp;
+        LogUtil.i("TAG", "writeLog 创建日志文件 start fileName = " + filename);
         File file = new File(filename);
+        boolean isSuccess = false;
         if (!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs();
+            isSuccess = file.getParentFile().mkdirs();
+            LogUtil.i("TAG", "writeLog 创建日志文件父目录 file.getParentFile() = " + file.getParentFile() + " , isSuccess : " + isSuccess);
         }
-        Log.i("TAG", "writeLog 写入到SD卡里面 start file exists = " + file.exists() + " , filename : " + filename);
+
         try {
-            Log.i("TAG", "写入到SD卡里面");
-            // FileOutputStream stream = new FileOutputStream(new
-            // File(filename));
-            // OutputStreamWriter output = new OutputStreamWriter(stream);
-            file.createNewFile();
-            file.canRead();
-            file.canWrite();
+            LogUtil.i("TAG", "检测父级目录是否创建成功");
+            if(isSuccess){
+                file.createNewFile();
+                file.canRead();
+                file.canWrite();
+            }else{
+                file = new File(appInstance.getExternalFilesDir("logs").getAbsoluteFile() + File.separator + timestamp);
+            }
+            LogUtil.i("TAG", "writeLog 写入到SD卡里面 start file exists = " + file.exists() + " , filename : " + file.getAbsolutePath());
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
             // 写入相关Log到文件
@@ -183,20 +185,20 @@ public class UnCeHandler implements UncaughtExceptionHandler {
             bw.newLine();
             bw.close();
             fw.close();
-            return filename;
+            return file.getAbsolutePath();
         } catch (IOException e) {
-            Log.e(TAG, "an error occured while writing file...", e);
+            LogUtil.e(TAG, "an error occured while writing file..."+e);
             e.printStackTrace();
             return null;
         }
     }
 
     private void restart(Context mContext) {
-        Log.i(TAG, "----- restart --------");
+        LogUtil.i(TAG, "----- restart --------");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
-            Log.e(TAG, "error : ", e);
+            LogUtil.e(TAG, "error : "+e);
         }
         Intent intent = new Intent(mContext.getApplicationContext(), restartClass);
         PendingIntent restartIntent = PendingIntent.getActivity(mContext.getApplicationContext(), 0, intent, PendingIntent.FLAG_NO_CREATE);

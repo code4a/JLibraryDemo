@@ -61,7 +61,7 @@
                 android:drawablePadding="8dp"
                 android:imeOptions="actionDone"
                 android:inputType="textNoSuggestions|textCapWords"
-                android:maxLength="1"
+                android:maxLines="1"
                 android:textSize="@dimen/size_edit_text" />
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>

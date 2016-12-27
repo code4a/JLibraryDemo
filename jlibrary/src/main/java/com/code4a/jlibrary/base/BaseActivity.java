@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.githang.statusbar.StatusBarCompat;
+
 /**
  * Created by renlei on 2016/5/23.
  */
@@ -42,6 +44,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         } else {
             finish();
         }
+    }
+
+    public void setStatusBarColor(int color){
+        StatusBarCompat.setStatusBarColor(this, color);
     }
 
     //返回键返回事件
