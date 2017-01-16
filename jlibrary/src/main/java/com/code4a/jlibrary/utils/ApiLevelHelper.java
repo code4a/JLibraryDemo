@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.topeka.helper;
+package com.code4a.jlibrary.utils;
 
 import android.os.Build;
 

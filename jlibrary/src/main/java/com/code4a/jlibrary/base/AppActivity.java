@@ -3,6 +3,8 @@ package com.code4a.jlibrary.base;
 import android.content.Intent;
 import android.os.Bundle;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by renlei on 2016/5/23.
@@ -21,6 +23,7 @@ public abstract class AppActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
+        ButterKnife.bind(this);
 
         if (null != getIntent()) {
             handleIntent(getIntent());

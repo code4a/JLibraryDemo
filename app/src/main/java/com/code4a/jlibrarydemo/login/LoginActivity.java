@@ -10,17 +10,20 @@ import com.code4a.jlibrarydemo.MainActivity;
 import com.code4a.jlibrarydemo.R;
 import com.dd.CircularProgressButton;
 
+import butterknife.BindView;
+
 /**
  * Created by code4a on 2016/12/23.
  */
 
 public class LoginActivity extends AppActivity implements LoginView {
 
-
-    private EditText username;
-    private EditText password;
-    private LoginPresenter presenter;
+    @BindView(R.id.username)
+    EditText username;
+    @BindView(R.id.password)
+    EditText password;
     private CircularProgressButton circularButton;
+    private LoginPresenter presenter;
 
     @Override
     protected BaseFragment getFirstFragment() {
@@ -35,8 +38,8 @@ public class LoginActivity extends AppActivity implements LoginView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        username = $(R.id.username);
-        password = $(R.id.password);
+//        username = $(R.id.username);
+//        password = $(R.id.password);
         circularButton = $(R.id.login_btn);
         circularButton.setOnClickListener(this);
 

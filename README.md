@@ -5,6 +5,7 @@
 * 支持程序crash后log收集，程序异常退出后，重启app
 * 新增bugly的bug上报和应用更新！通过JbuglyManger修改appid和appkey 并初始化bugly
 * 添加支持设置系统状态栏颜色，兼容Android 4.4.2(API 19)以上
+* library 加入Butterknife 8.4.0 提供注解支持
 
 ##### 使用CrashHandler收集crash日志，并重启应用
 
@@ -21,6 +22,7 @@
 ```java
     JBuglyManager.setAppIdAndKey(appId, appKey);
 ```
+
 接着调用如下代码。
 ```java
     JBuglyManager.initCrashReportAndUpdate(this, true);
@@ -32,13 +34,53 @@
 ```java
     setStatusBarColor(int color);
 ```
+
 如果是自己的Activity，则需要在onCreate中调用以下代码。
 ```java
     StatusBarCompat.setStatusBarColor(this, color, lightStatusBar);
 ```
+
 或者是
 ```java
     StatusBarCompat.setStatusBarColor(this, color);
+```
+
+##### 控件初始化
+
+如何你想使用注解初始化控件需要首先在app的`build.gradle`中添加如下代码，尽管在library中做了配置，但如果不再app中添加，同样会导致空指针
+```java
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+```
+
+然后在`Activity`和`Fragment`中使用注解绑定控件和事件
+```java
+    // 绑定button控件
+    @BindView( R.id.button1 )
+    Button button1 ;
+
+    @BindViews({ R.id.button1  , R.id.button2 ,  R.id.button3 })
+    public List<Button> buttonList ;
+
+    // 绑定string 字符串
+    @BindString( R.string.app_name )
+    String meg;
+
+    // 给 button1 设置一个点击事件
+    @OnClick(R.id.button1 )
+    public void showToast(){
+        Toast.makeText(this, "is a click", Toast.LENGTH_SHORT).show();
+    }
+```
+
+如果是不想使用注解方式，那在`Activity`中采用如下方式
+```java
+    Button btn = $(R.id.btn_id);
+```
+
+在`Fragment`的`initView(View view, , Bundle savedInstanceState)`中采用
+```java
+    Button btn = $(view, R.id.btn_id);
 ```
 
 # 如何依赖
@@ -46,7 +88,7 @@
 #### Gradle
 ```
 dependencies {
-  compile 'com.code4a:jlibrary:1.0.4'
+  compile 'com.code4a:jlibrary:1.0.5'
 }
 ```
 
@@ -55,7 +97,7 @@ dependencies {
 <dependency>
   <groupId>com.code4a</groupId>
   <artifactId>jlibrary</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```

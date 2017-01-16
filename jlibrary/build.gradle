@@ -1,4 +1,14 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+    }
+}
+
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 25
@@ -35,7 +45,7 @@ ext{
     siteUrl = 'https://github.com/code4a/JLibraryDemo'
     gitUrl = 'https://github.com/code4a/JLibraryDemo.git'
 
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.5'
 
     developerId = 'code4a'
     developerName = 'code4a'
@@ -47,8 +57,6 @@ ext{
 
 }
 
-
-apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -62,9 +70,11 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.githang:status-bar-compat:0.5'
+    compile 'com.yanzhenjie:permission:1.0.4'
+
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.4.0'
-    apt "com.jakewharton:butterknife-compiler:8.4.0"
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
 
 tasks.withType(Javadoc) {
