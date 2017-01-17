@@ -1,11 +1,12 @@
 package com.code4a.jlibrarydemo.splash;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.util.Pair;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -24,6 +25,8 @@ public class SplashFragment extends BaseFragment implements SplashView {
 
     @BindView(R.id.splash)
     ImageView mSplashImg;
+    @BindView(R.id.splash_msg)
+    TextView transitionTv;
 
     private ScaleAnimation scaleAnimation;
 
@@ -63,7 +66,9 @@ public class SplashFragment extends BaseFragment implements SplashView {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(getActivity(), LoginActivity.class));
+//                startActivity(new Intent(getActivity(), LoginActivity.class));
+                Pair<View, String> pair = new Pair<>((View)transitionTv, getString(R.string.share_element_tv));
+                ((SplashActivity)getActivity()).openActivityMakeTransition(LoginActivity.class, pair);
                 ActivityManager.getInstance().finishActivity();
             }
 

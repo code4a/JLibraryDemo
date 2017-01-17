@@ -35,7 +35,7 @@
     setStatusBarColor(int color);
 ```
 
-如果你的界面是图片背景，则需要调用以下方法，将图片平铺至状态栏，目前测试系统4.4、5.0.1、5.1
+如果你的界面是图片背景，则需要调用以下方法，将图片平铺至状态栏，目前测试系统4.4、5.0.2、5.1
 ```java
     setStatusBarColor(Color.TRANSPARENT, false);
 ```

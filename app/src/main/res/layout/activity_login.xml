@@ -74,6 +74,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/size_edit_text"
+        android:text="@string/app_name"
         android:transitionName="@string/share_element_tv" />
 
     <ImageView

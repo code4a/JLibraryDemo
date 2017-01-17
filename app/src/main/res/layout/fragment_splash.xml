@@ -11,6 +11,7 @@
         android:scaleType="centerCrop"/>
 
     <TextView
+        android:id="@+id/splash_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
@@ -18,7 +19,8 @@
         android:gravity="center"
         android:lineSpacingMultiplier="1.2"
         android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:transitionName="@string/share_element_tv"/>
 
 </FrameLayout>
