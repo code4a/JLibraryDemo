@@ -6,8 +6,8 @@ import android.widget.EditText;
 
 import com.code4a.jlibrary.base.AppActivity;
 import com.code4a.jlibrary.base.BaseFragment;
-import com.code4a.jlibrarydemo.MainActivity;
 import com.code4a.jlibrarydemo.R;
+import com.code4a.jlibrarydemo.home.HomeActivity;
 import com.dd.CircularProgressButton;
 
 import butterknife.BindView;
@@ -38,6 +38,7 @@ public class LoginActivity extends AppActivity implements LoginView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStatusBarColor(android.R.color.transparent, false);
 //        username = $(R.id.username);
 //        password = $(R.id.password);
         circularButton = $(R.id.login_btn);
@@ -89,7 +90,7 @@ public class LoginActivity extends AppActivity implements LoginView {
 
     @Override
     public void navigateToHome() {
-        openActivity(MainActivity.class);
+        openActivity(HomeActivity.class);
         resetButtonState();
     }
 }

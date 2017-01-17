@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/fragment_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_head"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@mipmap/default_head"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="2dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="58dp"
+            android:gravity="center"
+            android:text="9ADDFDFF-E8XA"
+            android:textColor="@color/light_black"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/feedback"
+            layout="@layout/fragment_mine_middle" />
+
+        <include
+            android:id="@+id/user"
+            layout="@layout/fragment_mine_middle" />
+
+        <include
+            android:id="@+id/cache"
+            layout="@layout/fragment_mine_middle" />
+
+        <include
+            android:id="@+id/about"
+            layout="@layout/fragment_mine_middle" />
+
+    </LinearLayout>
+
+</LinearLayout>

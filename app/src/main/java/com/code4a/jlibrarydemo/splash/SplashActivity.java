@@ -1,5 +1,7 @@
 package com.code4a.jlibrarydemo.splash;
 
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
 
 import com.code4a.jlibrary.base.AppActivity;
@@ -14,6 +16,12 @@ public class SplashActivity extends AppActivity {
     @Override
     protected BaseFragment getFirstFragment() {
         return SplashFragment.getInstance();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStatusBarColor(Color.TRANSPARENT, false);
     }
 
     @Override

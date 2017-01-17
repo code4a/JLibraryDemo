@@ -2,6 +2,7 @@ package com.code4a.jlibrary.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 
 import butterknife.ButterKnife;
 
@@ -22,6 +23,7 @@ public abstract class AppActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getContentViewId());
         ButterKnife.bind(this);
 

@@ -2,13 +2,17 @@ package com.code4a.jlibrary.base;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.githang.statusbar.StatusBarCompat;
 
@@ -46,8 +50,31 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public void setStatusBarColor(int color){
-        StatusBarCompat.setStatusBarColor(this, color);
+    public void setStatusBarColor(@ColorRes int color){
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(color));
+    }
+
+    /**
+     * 可将颜色设置为透明，背景为图片时，可平铺到状态栏
+     * @param color 颜色
+     * @param fitSystemWindows 是否预留出系统 View 的空间
+     */
+    public void setStatusBarColor(int color, boolean fitSystemWindows){
+        Window window = this.getWindow();
+        if (/*Build.VERSION.SDK_INT < Build.VERSION_CODES.M && */Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            //取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //设置状态栏颜色
+            window.setStatusBarColor(color);
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //设置透明状态栏,使 ContentView 内容覆盖状态栏
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+        StatusBarCompat.setFitsSystemWindows(window, fitSystemWindows);
     }
 
     //返回键返回事件
