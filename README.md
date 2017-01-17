@@ -35,6 +35,11 @@
     setStatusBarColor(int color);
 ```
 
+如果你的界面是图片背景，则需要调用以下方法，将图片平铺至状态栏，目前测试系统4.4、5.0.1、5.1
+```java
+    setStatusBarColor(Color.TRANSPARENT, false);
+```
+
 如果是自己的Activity，则需要在onCreate中调用以下代码。
 ```java
     StatusBarCompat.setStatusBarColor(this, color, lightStatusBar);
@@ -44,6 +49,8 @@
 ```java
     StatusBarCompat.setStatusBarColor(this, color);
 ```
+
+**如果使用`StatusBarCompat`的API需要注意`color`必须为颜色值，不能是颜色资源，否则不生效**
 
 ##### 控件初始化
 
@@ -88,7 +95,7 @@
 #### Gradle
 ```
 dependencies {
-  compile 'com.code4a:jlibrary:1.0.5'
+  compile 'com.code4a:jlibrary:1.0.6'
 }
 ```
 
@@ -97,7 +104,7 @@ dependencies {
 <dependency>
   <groupId>com.code4a</groupId>
   <artifactId>jlibrary</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <type>pom</type>
 </dependency>
 ```

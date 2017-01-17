@@ -45,7 +45,7 @@ ext{
     siteUrl = 'https://github.com/code4a/JLibraryDemo'
     gitUrl = 'https://github.com/code4a/JLibraryDemo.git'
 
-    libraryVersion = '1.0.5'
+    libraryVersion = '1.0.6'
 
     developerId = 'code4a'
     developerName = 'code4a'
