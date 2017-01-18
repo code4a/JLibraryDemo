@@ -31,4 +31,9 @@ public class SplashPresenterImpl extends SplashPresenter {
             }
         });
     }
+
+    @Override
+    public void cancel() {
+        splashInteractor.cancel();
+    }
 }

@@ -18,4 +18,6 @@ public interface SplashInteractor {
     void getRes(int page, int size, LoadSplashResListener listener);
 
     void getRes(LoadSplashResListener listener);
+
+    void cancel();
 }

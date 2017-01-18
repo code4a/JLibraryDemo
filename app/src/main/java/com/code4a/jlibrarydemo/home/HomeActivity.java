@@ -14,6 +14,7 @@ import com.code4a.jlibrary.base.BaseActivity;
 import com.code4a.jlibrarydemo.R;
 import com.code4a.jlibrarydemo.data.HomeBottomTab;
 import com.code4a.jlibrarydemo.home.frag.category.CategoryFragment;
+import com.code4a.jlibrarydemo.home.frag.home.HomeFragment;
 import com.code4a.jlibrarydemo.home.frag.hot.HotFragment;
 import com.code4a.jlibrarydemo.home.frag.mine.MineFragment;
 import com.code4a.jlibrarydemo.widget.FragmentTabHost;
@@ -39,7 +40,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initTab() {
-        HomeBottomTab tab_home = new HomeBottomTab(MineFragment.class, R.string.home, R.drawable.selector_icon_home);
+        HomeBottomTab tab_home = new HomeBottomTab(HomeFragment.class, R.string.home, R.drawable.selector_icon_home);
         HomeBottomTab tab_hot = new HomeBottomTab(HotFragment.class, R.string.hot, R.drawable.selector_icon_hot);
         HomeBottomTab tab_category = new HomeBottomTab(CategoryFragment.class, R.string.catagory, R.drawable.selector_icon_category);
         HomeBottomTab tab_mine = new HomeBottomTab(MineFragment.class, R.string.mine, R.drawable.selector_icon_mine);

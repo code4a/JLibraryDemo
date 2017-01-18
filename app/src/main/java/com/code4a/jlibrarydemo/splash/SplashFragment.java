@@ -103,4 +103,9 @@ public class SplashFragment extends BaseFragment implements SplashView {
         mPresenter.start();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.cancel();
+    }
 }

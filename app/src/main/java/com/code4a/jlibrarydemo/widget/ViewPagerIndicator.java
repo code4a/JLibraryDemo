@@ -270,7 +270,7 @@ public class ViewPagerIndicator extends LinearLayout {
                 if (i == currentPosition) {
                     ((TextView) getChildAt(currentPosition)).setTextColor(getResources().getColor(R.color.font_red));
                 } else {
-                    ((TextView) getChildAt(i)).setTextColor(getResources().getColor(R.color.font_white));
+                    ((TextView) getChildAt(i)).setTextColor(getResources().getColor(R.color.font_bar_color));
                 }
             }
         }
