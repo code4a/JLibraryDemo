@@ -19,34 +19,40 @@
         app:direction="right">
 
         <ImageView
+            android:id="@+id/hot_movie1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter"/>
 
         <ImageView
+            android:id="@+id/hot_movie2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter" />
 
         <ImageView
+            android:id="@+id/hot_movie3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter" />
 
         <ImageView
+            android:id="@+id/hot_movie4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter" />
 
         <ImageView
+            android:id="@+id/hot_movie5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter" />
 
         <ImageView
+            android:id="@+id/hot_movie6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_bg" />
+            android:scaleType="fitCenter" />
     </com.dalong.library.view.LoopRotarySwitchView>
 
     <TextView
