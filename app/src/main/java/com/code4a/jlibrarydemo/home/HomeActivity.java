@@ -74,7 +74,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private View buildIndicator(HomeBottomTab tab) {
-        View view = mInflater.inflate(R.layout.tab_indicator, null);
+        View view = mInflater.inflate(R.layout.home_bottom_tab_indicator, null);
         ImageView img = (ImageView) view.findViewById(R.id.icon_tab);
         TextView text = (TextView) view.findViewById(R.id.txt_indicator);
 

@@ -1,10 +1,10 @@
-package com.code4a.jlibrarydemo.splash;
+package com.code4a.jlibrarydemo.commoninteractor;
 
 import android.util.Log;
 
+import com.code4a.jlibrarydemo.data.GirlsBean;
 import com.code4a.jlibrarydemo.http.GirlsService;
 import com.code4a.jlibrarydemo.http.SplashRetrofit;
-import com.code4a.jlibrarydemo.splash.data.GirlsBean;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -14,9 +14,9 @@ import rx.schedulers.Schedulers;
  * Created by code4a on 2017/1/12.
  */
 
-public class SplashInteractorImpl implements SplashInteractor {
+public class GirlsCommonInteractorImpl implements GirlsCommonInteractor {
 
-    private static final String TAG = "SplashInteractorImpl";
+    private static final String TAG = "InteractorImpl";
     private boolean isCanceled = false;
 
     @Override

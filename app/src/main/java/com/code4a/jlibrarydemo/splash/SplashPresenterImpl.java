@@ -1,7 +1,9 @@
 package com.code4a.jlibrarydemo.splash;
 
 import com.code4a.jlibrarydemo.JLibraryApp;
-import com.code4a.jlibrarydemo.splash.data.GirlsBean;
+import com.code4a.jlibrarydemo.commoninteractor.GirlsCommonInteractor;
+import com.code4a.jlibrarydemo.commoninteractor.GirlsCommonInteractorImpl;
+import com.code4a.jlibrarydemo.data.GirlsBean;
 
 /**
  * Created by code4a on 2017/1/12.
@@ -9,16 +11,16 @@ import com.code4a.jlibrarydemo.splash.data.GirlsBean;
 
 public class SplashPresenterImpl extends SplashPresenter {
 
-    private SplashInteractor splashInteractor;
+    private GirlsCommonInteractor girlsCommonInteractor;
 
     protected SplashPresenterImpl(SplashView view) {
         super(view);
-        this.splashInteractor = new SplashInteractorImpl();
+        this.girlsCommonInteractor = new GirlsCommonInteractorImpl();
     }
 
     @Override
     public void start() {
-        splashInteractor.getRes(new SplashInteractor.LoadSplashResListener() {
+        girlsCommonInteractor.getRes(new GirlsCommonInteractor.LoadSplashResListener() {
             @Override
             public void onResLoaded(GirlsBean girlsBean) {
                 getView().showGirl(girlsBean.getResults().get(0).getUrl());
@@ -34,6 +36,7 @@ public class SplashPresenterImpl extends SplashPresenter {
 
     @Override
     public void cancel() {
-        splashInteractor.cancel();
+        girlsCommonInteractor.cancel();
+        release();
     }
 }

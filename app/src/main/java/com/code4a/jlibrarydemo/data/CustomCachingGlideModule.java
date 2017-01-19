@@ -1,4 +1,4 @@
-package com.code4a.jlibrarydemo.splash.data;
+package com.code4a.jlibrarydemo.data;
 
 import android.content.Context;
 

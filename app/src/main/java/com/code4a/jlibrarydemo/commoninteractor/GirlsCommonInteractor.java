@@ -1,12 +1,12 @@
-package com.code4a.jlibrarydemo.splash;
+package com.code4a.jlibrarydemo.commoninteractor;
 
-import com.code4a.jlibrarydemo.splash.data.GirlsBean;
+import com.code4a.jlibrarydemo.data.GirlsBean;
 
 /**
  * Created by code4a on 2017/1/12.
  */
 
-public interface SplashInteractor {
+public interface GirlsCommonInteractor {
 
     interface LoadSplashResListener {
 

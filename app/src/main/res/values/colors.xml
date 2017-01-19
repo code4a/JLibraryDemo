@@ -13,4 +13,6 @@
     <color name="font_bar_color">#3F51B5</color>
     <color name="font_white">#FFFFFF</color>
     <color name="main_color">#5CB85C</color>
+
+    <color name="swipe_background_color">#ffffff</color>
 </resources>

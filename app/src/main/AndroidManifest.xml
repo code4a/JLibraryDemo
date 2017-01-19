@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
         <meta-data
-            android:name="com.code4a.jlibrarydemo.splash.data.CustomCachingGlideModule"
+            android:name="com.code4a.jlibrarydemo.data.CustomCachingGlideModule"
             android:value="GlideModule" />
 
         <activity android:name=".login.LoginActivity"/>

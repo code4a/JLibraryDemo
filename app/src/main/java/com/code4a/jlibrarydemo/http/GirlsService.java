@@ -1,6 +1,6 @@
 package com.code4a.jlibrarydemo.http;
 
-import com.code4a.jlibrarydemo.splash.data.GirlsBean;
+import com.code4a.jlibrarydemo.data.GirlsBean;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
