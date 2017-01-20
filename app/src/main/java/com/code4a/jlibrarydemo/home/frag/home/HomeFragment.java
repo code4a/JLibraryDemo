@@ -9,6 +9,7 @@ import com.code4a.jlibrary.base.BaseFragment;
 import com.code4a.jlibrarydemo.R;
 import com.code4a.jlibrarydemo.home.frag.home.four.FourFragment;
 import com.code4a.jlibrarydemo.home.frag.home.one.OneFragment;
+import com.code4a.jlibrarydemo.home.frag.home.three.ThreeFragment;
 import com.code4a.jlibrarydemo.home.frag.home.two.TwoFragment;
 import com.code4a.jlibrarydemo.widget.ViewPagerIndicator;
 
@@ -35,7 +36,7 @@ public class HomeFragment extends BaseFragment {
         mList = new ArrayList<>(itemCount);
         mList.add(OneFragment.getInstance());
         mList.add(TwoFragment.getInstance());
-        mList.add(FourFragment.getInstance());
+        mList.add(ThreeFragment.getInstance());
         mList.add(FourFragment.getInstance());
         mDatas = new ArrayList<>(itemCount);
         for (int i = 0; i < itemCount; i++) {

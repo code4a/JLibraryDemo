@@ -6,7 +6,7 @@ import com.code4a.jlibrarydemo.data.GirlsBean;
  * Created by code4a on 2017/1/12.
  */
 
-public interface GirlsCommonInteractor {
+public interface GankCommonInteractor {
 
     interface LoadSplashResListener {
 
@@ -15,9 +15,9 @@ public interface GirlsCommonInteractor {
         void onDataNotAvailable();
     }
 
-    void getRes(int page, int size, LoadSplashResListener listener);
+    void getRes(String type, int page, int count, LoadSplashResListener listener);
 
-    void getRes(LoadSplashResListener listener);
+    void getRes(String type, LoadSplashResListener listener);
 
     void cancel();
 }

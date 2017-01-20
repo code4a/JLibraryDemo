@@ -16,4 +16,5 @@
     <color name="transparent">#00000000</color>
 
     <color name="swipe_background_color">#ffffff</color>
+    <color name="video_thumbnail_placeholder_color">#cccccc</color>
 </resources>

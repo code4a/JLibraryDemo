@@ -75,6 +75,7 @@ ext{
     nineoldandroids_version = '2.4.0'
     indicator_version = '1.1.3'
     easyrecyclerview_version = '4.2.1'
+    vp_manager_version = '0.2.0'
 }
 
 dependencies {
@@ -89,7 +90,9 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
     compile "com.android.support:appcompat-v7:${supportVersion}"
+    compile "com.android.support:recyclerview-v7:${supportVersion}"
     compile "com.android.support:support-v4:${supportVersion}"
+    compile "com.android.support:cardview-v7:${supportVersion}"
     compile "com.github.dmytrodanylyk.circular-progress-button:library:${cpbVersion}"
     compile "io.reactivex:rxandroid:${rxandroid_version}"
     compile "io.reactivex:rxjava:${rxjava_version}"
@@ -99,6 +102,8 @@ dependencies {
     compile "com.youth.banner:banner:${banner_version}"
     compile "com.shizhefei:ViewPagerIndicator:${indicator_version}"
     compile "com.jude:easyrecyclerview:${easyrecyclerview_version}"
+    compile "com.github.danylovolokh:video-player-manager:${vp_manager_version}"
+    compile "com.github.danylovolokh:list-visibility-utils:${vp_manager_version}"
 
     compile "com.jakewharton:butterknife:${butterknife_version}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
@@ -109,4 +114,5 @@ dependencies {
     compile 'com.daimajia.androidanimations:library:1.1.2@aar'
     compile 'com.daimajia.androidviewhover:library:1.0.4@aar'
     compile 'com.makeramen:roundedimageview:1.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

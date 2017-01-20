@@ -1,8 +1,9 @@
 package com.code4a.jlibrarydemo.home.frag.home.two.girls;
 
-import com.code4a.jlibrarydemo.commoninteractor.GirlsCommonInteractor;
-import com.code4a.jlibrarydemo.commoninteractor.GirlsCommonInteractorImpl;
+import com.code4a.jlibrarydemo.commoninteractor.GankCommonInteractor;
+import com.code4a.jlibrarydemo.commoninteractor.GankCommonInteractorImpl;
 import com.code4a.jlibrarydemo.data.GirlsBean;
+import com.code4a.jlibrarydemo.utils.Constants;
 
 /**
  * Created by code4a on 2017/1/12.
@@ -10,11 +11,11 @@ import com.code4a.jlibrarydemo.data.GirlsBean;
 
 public class GirlsPresenterImpl extends GirlsPresenter {
 
-    private GirlsCommonInteractor girlsCommonInteractor;
+    private GankCommonInteractor gankCommonInteractor;
 
     protected GirlsPresenterImpl(GirlsView view) {
         super(view);
-        this.girlsCommonInteractor = new GirlsCommonInteractorImpl();
+        this.gankCommonInteractor = new GankCommonInteractorImpl();
     }
 
     @Override
@@ -23,8 +24,8 @@ public class GirlsPresenterImpl extends GirlsPresenter {
     }
 
     @Override
-    public void getGirls(int page, int size, final boolean isRefresh) {
-        girlsCommonInteractor.getRes(page, size, new GirlsCommonInteractor.LoadSplashResListener() {
+    public void getGirls(int page, int count, final boolean isRefresh) {
+        gankCommonInteractor.getRes(Constants.FULI, page, count, new GankCommonInteractor.LoadSplashResListener() {
             @Override
             public void onResLoaded(GirlsBean girlsBean) {
                 if(isRefresh){
@@ -46,7 +47,7 @@ public class GirlsPresenterImpl extends GirlsPresenter {
 
     @Override
     public void cancel() {
-        girlsCommonInteractor.cancel();
+        gankCommonInteractor.cancel();
         release();
     }
 }

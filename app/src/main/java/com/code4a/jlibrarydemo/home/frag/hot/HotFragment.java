@@ -15,6 +15,7 @@ import com.dalong.library.listener.OnItemSelectedListener;
 import com.dalong.library.view.LoopRotarySwitchView;
 
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -55,7 +56,7 @@ public class HotFragment extends HomeBaseFragment implements HotView {
     @Override
     public void onResume() {
         super.onResume();
-        mHotPresenter.start(imageViews.size(), imageViews.size());
+        mHotPresenter.start(new Random().nextInt(20), imageViews.size());
     }
 
     @Override

@@ -14,17 +14,17 @@ import rx.schedulers.Schedulers;
  * Created by code4a on 2017/1/12.
  */
 
-public class GirlsCommonInteractorImpl implements GirlsCommonInteractor {
+public class GankCommonInteractorImpl implements GankCommonInteractor {
 
     private static final String TAG = "InteractorImpl";
     private boolean isCanceled = false;
 
     @Override
-    public void getRes(int page, int size, final LoadSplashResListener listener) {
+    public void getRes(String type, int page, int count, final LoadSplashResListener listener) {
         isCanceled = false;
         SplashRetrofit.getRetrofit()
                 .create(GirlsService.class)
-                .getGirls("福利", size, page)
+                .getGirls(type, count, page)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -52,8 +52,8 @@ public class GirlsCommonInteractorImpl implements GirlsCommonInteractor {
     }
 
     @Override
-    public void getRes(LoadSplashResListener listener) {
-        getRes(1, 1, listener);
+    public void getRes(String type, LoadSplashResListener listener) {
+        getRes(type, 1, 1, listener);
     }
 
     @Override

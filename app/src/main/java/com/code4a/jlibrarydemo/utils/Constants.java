@@ -12,4 +12,8 @@ public class Constants {
     public static final String GANHUO_API = "http://gank.io/";
 
     public static final String dir = FileUtil.getDiskCacheDir(JLibraryApp.getInstance()) + "/girls";
+
+    public static final String FULI = "福利";
+
+    public static final String VIDEO = "休息视频";
 }
