@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
-    android:orientation="vertical">
+    android:background="@color/light_gray">
 
-    <include layout="@layout/fragment_toolbar" />
+    <include
+        android:id="@+id/hot_toolbar"
+        layout="@layout/fragment_toolbar" />
 
     <com.dalong.library.view.LoopRotarySwitchView
         android:id="@+id/mLoopRotarySwitchView"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:paddingTop="20dp"
+        android:layout_below="@id/hot_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
         android:paddingBottom="20dp"
-        android:layout_weight="1"
         android:gravity="center"
         app:direction="right">
 
@@ -22,49 +23,58 @@
             android:id="@+id/hot_movie1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"/>
+            android:scaleType="center"/>
 
         <ImageView
             android:id="@+id/hot_movie2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter" />
+            android:scaleType="center" />
 
         <ImageView
             android:id="@+id/hot_movie3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter" />
+            android:scaleType="center" />
 
         <ImageView
             android:id="@+id/hot_movie4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter" />
+            android:scaleType="center" />
 
         <ImageView
             android:id="@+id/hot_movie5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter" />
+            android:scaleType="center" />
 
         <ImageView
             android:id="@+id/hot_movie6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter" />
+            android:scaleType="center" />
     </com.dalong.library.view.LoopRotarySwitchView>
 
     <TextView
         android:id="@+id/current_hot_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
         android:gravity="center"
         android:lineSpacingMultiplier="1.2"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="@color/colorToolBar"
         android:textSize="18sp" />
 
-</LinearLayout>
+    <com.code4a.jlibrary.loading.LoadingView
+        android:id="@+id/collision_loadingview"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
+        android:layout_centerInParent="true"
+        android:background="@color/transparent"
+        app:loading_renderer="CollisionLoadingRenderer" />
+
+</RelativeLayout>

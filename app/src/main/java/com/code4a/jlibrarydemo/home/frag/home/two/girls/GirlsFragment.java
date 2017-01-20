@@ -37,7 +37,7 @@ public class GirlsFragment extends BaseFragment implements GirlsView, SwipeRefre
     private GirlsAdapter mAdapter;
 
     private GirlsPresenter mPresenter;
-    private int page = 1;
+    private int page = 20;
     private int size = 20;
 
 //    private Unbinder unbinder;

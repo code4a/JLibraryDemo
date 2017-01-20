@@ -11,6 +11,10 @@ import java.util.List;
 
 public interface HotView extends BasePresenterView {
 
+    void showLoadingView();
+
+    void hideLoadingView();
+
     void showGirl(List<GirlsBean.ResultsEntity> datas);
 
     void showGirl();

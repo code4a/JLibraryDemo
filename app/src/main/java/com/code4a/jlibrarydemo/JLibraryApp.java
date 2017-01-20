@@ -16,7 +16,7 @@ public class JLibraryApp extends Application {
 
     private static JLibraryApp mApp;
 
-    public static String currentGirl = "http://ww2.sinaimg.cn/large/610dc034jw1f5k1k4azguj20u00u0421.jpg";
+    public static String currentGirl = "http://ww4.sinaimg.cn/large/610dc034jw1fbeerrs7aqj20u011htec.jpg";
 
     @Override
     public void onCreate() {

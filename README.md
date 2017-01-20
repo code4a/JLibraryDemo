@@ -6,6 +6,7 @@
 * 新增bugly的bug上报和应用更新！通过JbuglyManger修改appid和appkey 并初始化bugly
 * 添加支持设置系统状态栏颜色，兼容Android 4.4.2(API 19)以上
 * library 加入Butterknife 8.4.0 提供注解支持
+* 新增LoadingDrawable加载动画，具体用法可参考[dinuscxj的README](https://github.com/dinuscxj/LoadingDrawable/blob/master/README.md)
 
 ##### 使用CrashHandler收集crash日志，并重启应用
 
@@ -95,7 +96,7 @@
 #### Gradle
 ```
 dependencies {
-  compile 'com.code4a:jlibrary:1.0.6'
+  compile 'com.code4a:jlibrary:1.0.7'
 }
 ```
 
@@ -104,7 +105,7 @@ dependencies {
 <dependency>
   <groupId>com.code4a</groupId>
   <artifactId>jlibrary</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <type>pom</type>
 </dependency>
 ```
@@ -117,6 +118,7 @@ This project use this libraries ~ Thanks to them.
   [Gson](https://github.com/google/gson)  <br>
   [Bugly](https://github.com/BuglyDevTeam/Bugly-Android-Demo)  <br>
   [status-bar-compat](https://github.com/msdx/status-bar-compat)  <br>
+  [LoadingDrawable](https://github.com/dinuscxj/LoadingDrawable)  <br>
 
 
 License

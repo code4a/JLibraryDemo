@@ -19,15 +19,18 @@ public class HotPresenterImpl extends HotPresenter {
 
     @Override
     public void start(int page, int size) {
+        getView().showLoadingView();
         girlsCommonInteractor.getRes(page, size, new GirlsCommonInteractor.LoadSplashResListener() {
             @Override
             public void onResLoaded(GirlsBean girlsBean) {
                 getView().showGirl(girlsBean.getResults());
+                getView().hideLoadingView();
             }
 
             @Override
             public void onDataNotAvailable() {
                 getView().showGirl();
+                getView().hideLoadingView();
             }
         });
     }
