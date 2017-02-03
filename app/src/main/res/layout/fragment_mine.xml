@@ -50,10 +50,6 @@
             android:id="@+id/feedback"
             layout="@layout/fragment_mine_middle" />
 
-        <include
-            android:id="@+id/user"
-            layout="@layout/fragment_mine_middle" />
-
 <!--        <include
             android:id="@+id/cache"
             layout="@layout/fragment_mine_middle" />-->
@@ -108,6 +104,10 @@
                 app:loading_renderer="GearLoadingRenderer"/>
 
         </RelativeLayout>
+
+        <include
+            android:id="@+id/user"
+            layout="@layout/fragment_mine_middle" />
 
         <include
             android:id="@+id/about"

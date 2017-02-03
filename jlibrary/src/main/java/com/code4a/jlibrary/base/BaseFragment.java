@@ -1,6 +1,7 @@
 package com.code4a.jlibrary.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
@@ -56,6 +57,14 @@ public abstract class BaseFragment extends Fragment {
 
     protected int getColor(@ColorRes int color) {
         return getResources().getColor(color);
+    }
+
+    protected void openActivity(Class<?> clazz, Bundle pBundle) {
+        Intent startIntent = new Intent(mActivity, clazz);
+        if (pBundle != null) {
+            startIntent.putExtras(pBundle);
+        }
+        mActivity.startActivity(startIntent);
     }
 
     @Override

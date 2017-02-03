@@ -16,4 +16,9 @@ public class Constants {
     public static final String FULI = "福利";
 
     public static final String VIDEO = "休息视频";
+
+    public static final String BUNDLE_WV_TITLE = "wv_title";
+    public static final String BUNDLE_WV_URL = "wv_url";
+
+    public static final String ABOUT_ME = "http://www.code4a.com/about/";
 }

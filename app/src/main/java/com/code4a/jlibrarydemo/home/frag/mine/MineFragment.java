@@ -14,7 +14,9 @@ import com.code4a.jlibrary.tasks.Tasks;
 import com.code4a.jlibrary.utils.DataCleanUtil;
 import com.code4a.jlibrary.utils.ToastUtil;
 import com.code4a.jlibrarydemo.R;
+import com.code4a.jlibrarydemo.WebViewActivity;
 import com.code4a.jlibrarydemo.home.frag.HomeBaseFragment;
+import com.code4a.jlibrarydemo.utils.Constants;
 
 import butterknife.BindView;
 
@@ -92,9 +94,17 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
                 cleanCache();
                 break;
             case R.id.about:
+                gotoAboutMeWebView();
                 break;
         }
 //        ToastUtil.showShort(getHoldingActivity(), "用户点击了");
+    }
+
+    private void gotoAboutMeWebView() {
+        Bundle pBundle = new Bundle();
+        pBundle.putString(Constants.BUNDLE_WV_TITLE, getString(R.string.about_us));
+        pBundle.putString(Constants.BUNDLE_WV_URL, Constants.ABOUT_ME);
+        openActivity(WebViewActivity.class, pBundle);
     }
 
     private void getCacheSize(){
