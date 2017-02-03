@@ -6,13 +6,11 @@
     <string name="hot">热播</string>
     <string name="catagory">精品</string>
     <string name="mine">我的</string>
-    <string name="feedback">意见投诉</string>
+    <string name="feedback">意见反馈</string>
     <string name="cache">清除缓存</string>
-    <string name="about_us">关于我们</string>
-    <string name="user">用户协议</string>
+    <string name="about_us">关于我</string>
+    <string name="user">打赏我</string>
     <string name="hot_groom">热播推荐</string>
-
-    <color name="light_gray">#cccaca</color>
 
     <string name="user_name">username</string>
     <string name="password">password</string>

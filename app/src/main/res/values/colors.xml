@@ -15,6 +15,7 @@
     <color name="main_color">#5CB85C</color>
     <color name="transparent">#00000000</color>
 
+    <color name="light_gray">#cccaca</color>
     <color name="swipe_background_color">#ffffff</color>
     <color name="video_thumbnail_placeholder_color">#cccccc</color>
 </resources>

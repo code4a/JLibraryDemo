@@ -1,10 +1,17 @@
 package com.code4a.jlibrarydemo.home.frag.mine;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.code4a.jlibrary.loading.LoadingView;
+import com.code4a.jlibrary.tasks.BackgroundWork;
+import com.code4a.jlibrary.tasks.Completion;
+import com.code4a.jlibrary.tasks.Tasks;
+import com.code4a.jlibrary.utils.DataCleanUtil;
 import com.code4a.jlibrary.utils.ToastUtil;
 import com.code4a.jlibrarydemo.R;
 import com.code4a.jlibrarydemo.home.frag.HomeBaseFragment;
@@ -31,18 +38,21 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
 
     TextView feedBackTv;
     TextView userTv;
-    TextView cacheTv;
+    @BindView(R.id.cache_size_tv)
+    TextView cacheSizeTv;
     TextView aboutTv;
     ImageView feedBackIv;
     ImageView userIv;
-    ImageView cacheIv;
     ImageView aboutIv;
+    @BindView(R.id.gear_loadingview)
+    LoadingView mLoadingView;
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         setTitle(R.string.mine);
 
         initViewData();
+        getCacheSize();
     }
 
     private void initViewData() {
@@ -55,8 +65,6 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
         feedBackTv.setText(R.string.feedback);
         userTv = $(user, R.id.feedback_tv);
         userTv.setText(R.string.user);
-        cacheTv = $(cache, R.id.feedback_tv);
-        cacheTv.setText(R.string.cache);
         aboutTv = $(about, R.id.feedback_tv);
         aboutTv.setText(R.string.about_us);
 
@@ -64,8 +72,6 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
         feedBackIv.setImageResource(R.mipmap.mine_feedback);
         userIv = $(user, R.id.feedback_icon);
         userIv.setImageResource(R.mipmap.mine_user);
-        cacheIv = $(cache, R.id.feedback_icon);
-        cacheIv.setImageResource(R.mipmap.mine_cache);
         aboutIv = $(about, R.id.feedback_icon);
         aboutIv.setImageResource(R.mipmap.mine_about);
     }
@@ -77,6 +83,75 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        ToastUtil.showShort(getHoldingActivity(), "用户点击了");
+        switch (v.getId()) {
+            case R.id.feedback:
+                break;
+            case R.id.user:
+                break;
+            case R.id.cache:
+                cleanCache();
+                break;
+            case R.id.about:
+                break;
+        }
+//        ToastUtil.showShort(getHoldingActivity(), "用户点击了");
+    }
+
+    private void getCacheSize(){
+        showLoadingView();
+        Tasks.executeInBackground(getHoldingActivity(), new BackgroundWork<String>() {
+            @Override
+            public String doInBackground() throws Exception {
+                return DataCleanUtil.getCacheSize(getHoldingActivity());
+            }
+        }, new Completion<String>() {
+            @Override
+            public void onSuccess(Context context, String result) {
+                if(!TextUtils.isEmpty(result)){
+                    cacheSizeTv.setText(result);
+                    hideLoadingView();
+                }
+            }
+
+            @Override
+            public void onError(Context context, Exception e) {
+                cacheSizeTv.setText("0MB");
+                hideLoadingView();
+            }
+        });
+    }
+
+    private void cleanCache() {
+        showLoadingView();
+        Tasks.executeInBackground(getHoldingActivity(), new BackgroundWork<String>() {
+            @Override
+            public String doInBackground() throws Exception {
+                DataCleanUtil.cleanApplicationData(getHoldingActivity());
+                return null;
+            }
+        }, new Completion<String>() {
+            @Override
+            public void onSuccess(Context context, String result) {
+                ToastUtil.showShort(getHoldingActivity(), "数据清除完成！");
+                cacheSizeTv.setText("0MB");
+                hideLoadingView();
+            }
+
+            @Override
+            public void onError(Context context, Exception e) {
+                cacheSizeTv.setText("0MB");
+                hideLoadingView();
+            }
+        });
+    }
+
+    public void showLoadingView() {
+        mLoadingView.setVisibility(View.VISIBLE);
+        cacheSizeTv.setVisibility(View.GONE);
+    }
+
+    public void hideLoadingView() {
+        mLoadingView.setVisibility(View.GONE);
+        cacheSizeTv.setVisibility(View.VISIBLE);
     }
 }

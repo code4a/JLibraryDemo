@@ -33,7 +33,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginTop="58dp"
             android:gravity="center"
-            android:text="9ADDFDFF-E8XA"
+            android:text="code4a"
             android:textColor="@color/light_black"
             android:textSize="16sp" />
 
@@ -54,9 +54,60 @@
             android:id="@+id/user"
             layout="@layout/fragment_mine_middle" />
 
-        <include
+<!--        <include
             android:id="@+id/cache"
-            layout="@layout/fragment_mine_middle" />
+            layout="@layout/fragment_mine_middle" />-->
+
+        <RelativeLayout
+            android:id="@+id/cache"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/selector_mine_item"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <ImageView
+                android:id="@+id/cache_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:src="@mipmap/mine_cache" />
+
+            <TextView
+                android:id="@+id/cache_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@id/cache_icon"
+                android:text="@string/cache"
+                android:textColor="@color/light_black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/cache_size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:text="0MB"
+                android:textColor="@color/light_black"
+                android:textSize="18sp"/>
+
+            <com.code4a.jlibrary.loading.LoadingView
+                android:id="@+id/gear_loadingview"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:background="@color/transparent"
+                app:loading_renderer="GearLoadingRenderer"/>
+
+        </RelativeLayout>
 
         <include
             android:id="@+id/about"
