@@ -1,8 +1,10 @@
 package com.code4a.jlibrarydemo.login;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.code4a.jlibrary.base.AppActivity;
 import com.code4a.jlibrary.base.BaseFragment;
@@ -22,6 +24,7 @@ public class LoginActivity extends AppActivity implements LoginView {
     EditText username;
     @BindView(R.id.password)
     EditText password;
+    private AnimationDrawable anim;
     private CircularProgressButton circularButton;
     private LoginPresenter presenter;
 
@@ -41,12 +44,31 @@ public class LoginActivity extends AppActivity implements LoginView {
         setStatusBarColor(android.R.color.transparent, false);
 //        username = $(R.id.username);
 //        password = $(R.id.password);
+        RelativeLayout container = $(R.id.id_login_layout);
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
         circularButton = $(R.id.login_btn);
         circularButton.setOnClickListener(this);
 
         presenter = new LoginPresenterImpl(this);
     }
 
+    // Starting animation:- start the animation on onResume.
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
+    }
+
+    // Stopping animation:- stop the animation on onPause.
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
+    }
 
     @Override protected void onDestroy() {
         presenter.onDestroy();
