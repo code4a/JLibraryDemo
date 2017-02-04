@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@drawable/default_main_bg"
     android:orientation="vertical">
 
     <include layout="@layout/fragment_toolbar" />
@@ -11,7 +11,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:background="@color/white">
+        android:layout_margin="2dp"
+        android:background="@drawable/fragment_mine_item_press_bg">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_head"
@@ -20,7 +21,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:src="@mipmap/default_head"
-            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_color="@color/colorToolBar"
             app:civ_border_width="2dp">
 
         </de.hdodenhof.circleimageview.CircleImageView>
@@ -41,9 +42,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="246dp"
         android:layout_marginTop="4dp"
-        android:background="@color/white"
+        android:background="@color/transparent"
         android:orientation="vertical">
 
         <include
@@ -59,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@drawable/selector_mine_item"
+            android:layout_margin="2dp"
             android:orientation="horizontal"
             android:padding="3dp">
 

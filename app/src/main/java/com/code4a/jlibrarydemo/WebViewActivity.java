@@ -52,7 +52,7 @@ public class WebViewActivity extends AppActivity {
         setStatusBarColor(R.color.colorToolBar);
 
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_INSET);
+        mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setAllowFileAccess(true);
         webSettings.setBuiltInZoomControls(true);

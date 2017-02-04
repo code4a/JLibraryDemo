@@ -4,6 +4,7 @@
     android:layout_height="56dp"
     android:background="@drawable/selector_mine_item"
     android:orientation="horizontal"
+    android:layout_margin="2dp"
     android:padding="3dp">
 
     <ImageView
