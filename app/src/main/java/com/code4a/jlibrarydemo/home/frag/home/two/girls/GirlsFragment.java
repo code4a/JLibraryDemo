@@ -148,9 +148,16 @@ public class GirlsFragment extends BaseFragment implements GirlsView, SwipeRefre
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.cancel();
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mPresenter.cancel();
+        mPresenter.releaseRes();
+        mPresenter = null;
 //        unbinder.unbind();
     }
 }

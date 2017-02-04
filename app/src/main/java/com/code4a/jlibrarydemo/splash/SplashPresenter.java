@@ -15,4 +15,6 @@ public abstract class SplashPresenter extends BasePresenter<SplashView> {
     public abstract void start();
 
     public abstract void cancel();
+
+    public abstract void releaseRes();
 }

@@ -15,4 +15,6 @@ public abstract class HotPresenter extends BasePresenter<HotView> {
     public abstract void start(int page, int size);
 
     public abstract void cancel();
+
+    public abstract void releaseRes();
 }

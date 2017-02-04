@@ -38,6 +38,12 @@ public class SplashPresenterImpl extends SplashPresenter {
     @Override
     public void cancel() {
         gankCommonInteractor.cancel();
-        release();
     }
+
+    @Override
+    public void releaseRes() {
+        release();
+        gankCommonInteractor = null;
+    }
+
 }

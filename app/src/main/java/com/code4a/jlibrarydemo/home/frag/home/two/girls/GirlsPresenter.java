@@ -17,4 +17,6 @@ public abstract class GirlsPresenter extends BasePresenter<GirlsView> {
     public abstract void getGirls(int page, int size, boolean isRefresh);
 
     public abstract void cancel();
+
+    public abstract void releaseRes();
 }

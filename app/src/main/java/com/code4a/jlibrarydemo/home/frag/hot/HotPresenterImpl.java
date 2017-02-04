@@ -39,6 +39,11 @@ public class HotPresenterImpl extends HotPresenter {
     @Override
     public void cancel() {
         gankCommonInteractor.cancel();
+    }
+
+    @Override
+    public void releaseRes() {
         release();
+        gankCommonInteractor = null;
     }
 }

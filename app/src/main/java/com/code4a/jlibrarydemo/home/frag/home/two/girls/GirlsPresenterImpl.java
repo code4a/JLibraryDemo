@@ -19,7 +19,7 @@ public class GirlsPresenterImpl extends GirlsPresenter {
     }
 
     @Override
-    public void start(){
+    public void start() {
         getGirls(1, 20, true);
     }
 
@@ -28,9 +28,9 @@ public class GirlsPresenterImpl extends GirlsPresenter {
         gankCommonInteractor.getRes(Constants.FULI, page, count, new GankCommonInteractor.LoadSplashResListener() {
             @Override
             public void onResLoaded(GirlsBean girlsBean) {
-                if(isRefresh){
+                if (isRefresh) {
                     getView().refresh(girlsBean.getResults());
-                }else{
+                } else {
                     getView().load(girlsBean.getResults());
                 }
                 getView().showNormal();
@@ -38,7 +38,7 @@ public class GirlsPresenterImpl extends GirlsPresenter {
 
             @Override
             public void onDataNotAvailable() {
-                if(isRefresh) {
+                if (isRefresh) {
                     getView().showError();
                 }
             }
@@ -48,6 +48,11 @@ public class GirlsPresenterImpl extends GirlsPresenter {
     @Override
     public void cancel() {
         gankCommonInteractor.cancel();
+    }
+
+    @Override
+    public void releaseRes() {
         release();
+        gankCommonInteractor = null;
     }
 }

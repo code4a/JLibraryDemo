@@ -102,4 +102,12 @@ public class HotFragment extends HomeBaseFragment implements HotView {
                     .into(imageViews.get(i));
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mHotPresenter.releaseRes();
+        mHotPresenter = null;
+    }
+
 }
