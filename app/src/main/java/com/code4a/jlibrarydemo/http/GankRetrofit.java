@@ -11,13 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by code4a on 2017/1/12.
  */
 
-public class SplashRetrofit {
+public class GankRetrofit {
 
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
-            synchronized (SplashRetrofit.class) {
+            synchronized (GankRetrofit.class) {
                 if (retrofit == null) {
                     retrofit = new Retrofit.Builder()
                             .baseUrl(Constants.GANHUO_API)

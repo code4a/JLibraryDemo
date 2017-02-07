@@ -4,6 +4,9 @@
     package="com.code4a.jlibrarydemo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
@@ -14,7 +17,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
         <meta-data
             android:name="com.code4a.jlibrarydemo.data.CustomCachingGlideModule"
             android:value="GlideModule" />
@@ -26,7 +28,7 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         <!--</activity>-->
-        <activity android:name=".WebViewActivity" />
+        <activity android:name=".webview.WebViewActivity" />
         <activity
             android:name=".splash.SplashActivity">
             <intent-filter>
@@ -36,6 +38,32 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.HomeActivity" />
+        <activity android:name=".pay.PayActivity" />
+
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.tsy.sdk.pay.weixin.WXPayCallbackActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity-alias
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:targetActivity="com.tsy.sdk.pay.weixin.WXPayCallbackActivity" />
+
+        <!-- 支付宝支付 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+
     </application>
 
 </manifest>

@@ -59,6 +59,10 @@ public abstract class BaseFragment extends Fragment {
         return getResources().getColor(color);
     }
 
+    protected void openActivity(Class<?> clazz){
+        openActivity(clazz, null);
+    }
+
     protected void openActivity(Class<?> clazz, Bundle pBundle) {
         Intent startIntent = new Intent(mActivity, clazz);
         if (pBundle != null) {

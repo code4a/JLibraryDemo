@@ -1,4 +1,4 @@
-package com.code4a.jlibrarydemo;
+package com.code4a.jlibrarydemo.webview;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.code4a.jlibrary.base.AppActivity;
 import com.code4a.jlibrary.base.BaseFragment;
+import com.code4a.jlibrarydemo.R;
 import com.code4a.jlibrarydemo.utils.Constants;
 
 import butterknife.BindView;

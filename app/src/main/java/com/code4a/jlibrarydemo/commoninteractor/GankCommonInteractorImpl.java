@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.code4a.jlibrarydemo.data.GirlsBean;
 import com.code4a.jlibrarydemo.http.GirlsService;
-import com.code4a.jlibrarydemo.http.SplashRetrofit;
+import com.code4a.jlibrarydemo.http.GankRetrofit;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -22,7 +22,7 @@ public class GankCommonInteractorImpl implements GankCommonInteractor {
     @Override
     public void getRes(String type, int page, int count, final LoadSplashResListener listener) {
         isCanceled = false;
-        SplashRetrofit.getRetrofit()
+        GankRetrofit.getRetrofit()
                 .create(GirlsService.class)
                 .getGirls(type, count, page)
                 .subscribeOn(Schedulers.io())

@@ -13,8 +13,9 @@ import com.code4a.jlibrary.tasks.Completion;
 import com.code4a.jlibrary.tasks.Tasks;
 import com.code4a.jlibrary.utils.DataCleanUtil;
 import com.code4a.jlibrary.utils.ToastUtil;
+import com.code4a.jlibrarydemo.pay.PayActivity;
 import com.code4a.jlibrarydemo.R;
-import com.code4a.jlibrarydemo.WebViewActivity;
+import com.code4a.jlibrarydemo.webview.WebViewActivity;
 import com.code4a.jlibrarydemo.home.frag.HomeBaseFragment;
 import com.code4a.jlibrarydemo.utils.Constants;
 
@@ -89,6 +90,7 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
             case R.id.feedback:
                 break;
             case R.id.user:
+                openActivity(PayActivity.class);
                 break;
             case R.id.cache:
                 cleanCache();

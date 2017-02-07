@@ -21,4 +21,8 @@ public class Constants {
     public static final String BUNDLE_WV_URL = "wv_url";
 
     public static final String ABOUT_ME = "http://www.code4a.com/about/";
+    public static final String AESKEY = "http://www.code4a.com";
+    public static final String CODE4A_API = "https://raw.githubusercontent.com/code4a/code4aApi/master/";
+    public static final String CODE4A_ALIPAYINFO = "key.txt";
+
 }
