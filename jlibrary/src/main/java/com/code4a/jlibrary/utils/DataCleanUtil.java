@@ -106,12 +106,20 @@ public class DataCleanUtil {
      *
      * @param directory
      */
-    private static void deleteFilesByDirectory(File directory) {
+    private static boolean deleteFilesByDirectory(File directory) {
         if (directory != null && directory.exists() && directory.isDirectory()) {
-            for (File item : directory.listFiles()) {
-                item.delete();
+//            for (File item : directory.listFiles()) {
+//                item.delete();
+//            }
+            String[] children = directory.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteFilesByDirectory(new File(directory, children[i]));
+                if (!success) {
+                    return false;
+                }
             }
         }
+        return directory.delete();
     }
 
     // 获取文件
@@ -177,7 +185,8 @@ public class DataCleanUtil {
     public static String getFormatSize(double size) {
         double kiloByte = size / 1024;
         if (kiloByte < 1) {
-            return size + "Byte";
+//            return size + "Byte";
+            return "0K";
         }
 
         double megaByte = kiloByte / 1024;
@@ -210,6 +219,11 @@ public class DataCleanUtil {
     }
 
     public static String getCacheSize(Context context) throws Exception {
-        return getFormatSize(getFolderSize(context.getExternalCacheDir()));
+        long cacheSize = getFolderSize(context.getCacheDir());
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            cacheSize += getFolderSize(context.getExternalCacheDir());
+        }
+        return getFormatSize(cacheSize);
+//        return getFormatSize(getFolderSize(context.getExternalFilesDir()));
     }
 }

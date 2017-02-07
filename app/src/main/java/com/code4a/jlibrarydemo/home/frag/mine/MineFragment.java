@@ -139,13 +139,13 @@ public class MineFragment extends HomeBaseFragment implements View.OnClickListen
             @Override
             public String doInBackground() throws Exception {
                 DataCleanUtil.cleanApplicationData(getHoldingActivity());
-                return null;
+                return DataCleanUtil.getCacheSize(getHoldingActivity());
             }
         }, new Completion<String>() {
             @Override
             public void onSuccess(Context context, String result) {
                 ToastUtil.showShort(getHoldingActivity(), "数据清除完成！");
-                cacheSizeTv.setText("0MB");
+                cacheSizeTv.setText(result);
                 hideLoadingView();
             }
 

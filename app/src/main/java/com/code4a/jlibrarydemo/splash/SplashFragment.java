@@ -91,7 +91,7 @@ public class SplashFragment extends BaseFragment implements SplashView {
     @Override
     public void showGirl() {
         Glide.with(getActivity())
-                .load(R.drawable.login_bg)
+                .load(R.drawable.default_error)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .animate(scaleAnimation)
                 .into(mSplashImg);

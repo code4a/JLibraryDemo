@@ -50,7 +50,7 @@ public class HotFragment extends HomeBaseFragment implements HotView {
             }
         });
 
-        loadDefaultImg();
+//        loadDefaultImg();
     }
 
     @Override
