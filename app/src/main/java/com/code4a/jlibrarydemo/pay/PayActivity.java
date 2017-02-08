@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.code4a.jlibrary.base.AppActivity;
 import com.code4a.jlibrary.base.BaseFragment;
+import com.code4a.jlibrary.loading.LoadingView;
 import com.code4a.jlibrary.utils.LogUtil;
 import com.code4a.jlibrarydemo.R;
 import com.code4a.jlibrarydemo.data.AlipayBean;
@@ -50,6 +51,10 @@ public class PayActivity extends AppActivity implements PayView{
     Button btnAliPayPaste;
     @BindView(R.id.btnGetIp)
     Button btnGetIp;
+    @BindView(R.id.daynight_loadingview)
+    LoadingView mLoadView;
+
+    private String alipayValue;
 
     private PayPresenter payPresenter;
 
@@ -108,17 +113,24 @@ public class PayActivity extends AppActivity implements PayView{
                 break;
 
             case R.id.btnAliPay:
-                String alipay_pay_param = editAlipayParam.getText().toString();
-                if(TextUtils.isEmpty(alipay_pay_param)) {
-                    Toast.makeText(getApplication(), "请输入参数", Toast.LENGTH_SHORT).show();
+                String alipay_pay_value = editAlipayParam.getText().toString();
+                if(TextUtils.isEmpty(alipay_pay_value)) {
+                    Toast.makeText(getApplication(), "请输入金额", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double value = Double.parseDouble(alipay_pay_value);
+                if(value < 0.01){
+                    Toast.makeText(getApplication(), "金额不能低于0.01", Toast.LENGTH_SHORT).show();
                     return;
                 }
 //                doAlipay(alipay_pay_param);
+                alipayValue = alipay_pay_value;
                 this.payPresenter.onGetPayInfo(Constants.CODE4A_ALIPAYINFO);
                 break;
 
             case R.id.btnAliPayClear:
                 editAlipayParam.setText("");
+                alipayValue = "";
                 break;
 
             case R.id.btnAliPayPaste:
@@ -222,19 +234,19 @@ public class PayActivity extends AppActivity implements PayView{
     }
 
     @Override
-    public void showProgress() {
-
+    public void showLoadingView() {
+        mLoadView.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void hideProgress() {
-
+    public void hideLoadingView() {
+        mLoadView.setVisibility(View.GONE);
     }
 
     @Override
     public void doNext(AlipayBean alipayBean) {
         boolean rsa2 = (alipayBean.getPrivateKey().length() > 0);
-        Map<String, String> params = OrderInfoUtil.buildOrderParamMap(alipayBean.getAppid(), rsa2);
+        Map<String, String> params = OrderInfoUtil.buildOrderParamMap(alipayBean.getAppid(), rsa2, alipayValue);
         String orderParam = OrderInfoUtil.buildOrderParam(params);
 
         String sign = OrderInfoUtil.getSign(params, alipayBean.getPrivateKey(), rsa2);

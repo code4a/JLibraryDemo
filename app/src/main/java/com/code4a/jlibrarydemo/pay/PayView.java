@@ -9,9 +9,9 @@ import com.code4a.jlibrarydemo.data.AlipayBean;
 
 public interface PayView extends BasePresenterView {
 
-    void showProgress();
+    void showLoadingView();
 
-    void hideProgress();
+    void hideLoadingView();
 
     void doNext(AlipayBean alipayBean);
 }

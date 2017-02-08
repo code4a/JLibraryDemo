@@ -87,6 +87,15 @@
         android:src="@mipmap/ic_launcher"
         android:transitionName="@string/share_element" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        app:lottie_fileName="LogoSmall.json"
+        app:lottie_loop="true" />
+
     <com.dd.CircularProgressButton
         android:id="@+id/login_btn"
         android:layout_width="196dp"

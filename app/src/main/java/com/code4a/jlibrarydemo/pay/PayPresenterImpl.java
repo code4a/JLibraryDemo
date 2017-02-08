@@ -18,7 +18,7 @@ public class PayPresenterImpl extends PayPresenter implements PayInteractor.OnGe
     @Override
     public void onGetPayInfo(String key) {
         if (getView() != null) {
-            getView().showProgress();
+            getView().showLoadingView();
         }
         this.payInteractor.getPayInfo(key, this);
     }
@@ -37,14 +37,14 @@ public class PayPresenterImpl extends PayPresenter implements PayInteractor.OnGe
     @Override
     public void onFailed() {
         if (getView() != null) {
-            getView().hideProgress();
+            getView().hideLoadingView();
         }
     }
 
     @Override
     public void onSuccess(AlipayBean alipayBean) {
         if (getView() != null) {
-            getView().hideProgress();
+            getView().hideLoadingView();
             if (alipayBean != null) {
                 getView().doNext(alipayBean);
             }

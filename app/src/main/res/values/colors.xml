@@ -9,6 +9,7 @@
     <color name="default_bg_color">#C7EDCC</color>
     <color name="login_status_color">#ffffff</color>
     <color name="light_black">#232323</color>
+    <color name="dark_bule">#03011a</color>
     <color name="font_red">#D64948</color>
     <color name="font_bar_color">#3F51B5</color>
     <color name="font_white">#FFFFFF</color>

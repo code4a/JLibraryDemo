@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:background="@drawable/default_main_bg">
 
-    <include layout="@layout/fragment_toolbar" />
+    <include
+        android:id="@+id/pay_title"
+        layout="@layout/fragment_toolbar" />
+
+    <com.code4a.jlibrary.loading.LoadingView
+        android:id="@+id/daynight_loadingview"
+        android:layout_width="320dp"
+        android:layout_height="240dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@color/dark_bule"
+        app:loading_renderer="DayNightLoadingRenderer" />
 
     <ScrollView
+        android:layout_below="@id/pay_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -46,26 +59,29 @@
 
                 <Button
                     android:id="@+id/btnWXPay"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_mine_item"
                     android:text="支付" />
 
                 <Button
                     android:id="@+id/btnWXClear"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_mine_item"
                     android:text="清除" />
 
                 <Button
                     android:id="@+id/btnWXPaste"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_mine_item"
                     android:text="粘贴" />
             </LinearLayout>
 
@@ -85,7 +101,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:hint="输入pay_param" />
+                android:inputType="numberDecimal"
+                android:hint="请输入金额完成测试！" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -93,33 +110,37 @@
 
                 <Button
                     android:id="@+id/btnAliPay"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_mine_item"
                     android:text="支付" />
 
                 <Button
                     android:id="@+id/btnAliPayClear"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_mine_item"
                     android:text="清除" />
 
                 <Button
                     android:id="@+id/btnAliPayPaste"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:background="@drawable/selector_mine_item"
                     android:text="粘贴" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnGetIp"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:text="获取客户端IP"
@@ -127,4 +148,4 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.code4a.jlibrary.base.AppActivity;
 import com.code4a.jlibrary.base.BaseFragment;
 import com.code4a.jlibrarydemo.R;
@@ -24,6 +25,8 @@ public class LoginActivity extends AppActivity implements LoginView {
     EditText username;
     @BindView(R.id.password)
     EditText password;
+    @BindView(R.id.animation_view)
+    LottieAnimationView animationView;
     private AnimationDrawable anim;
     private CircularProgressButton circularButton;
     private LoginPresenter presenter;
@@ -52,6 +55,19 @@ public class LoginActivity extends AppActivity implements LoginView {
         circularButton.setOnClickListener(this);
 
         presenter = new LoginPresenterImpl(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        animationView.setProgress(0f);
+        animationView.playAnimation();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        animationView.cancelAnimation();
     }
 
     // Starting animation:- start the animation on onResume.
