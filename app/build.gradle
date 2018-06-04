@@ -13,7 +13,7 @@ android {
         myconfig {
             keyAlias 'com.code4a'
             keyPassword 'abcd1234'
-            storeFile file('C:/work_github/JLibraryDemo/app/Jlibrarydemo.jks')
+            storeFile file('./Jlibrarydemo.jks')
             storePassword 'abcd1234'
         }
     }
